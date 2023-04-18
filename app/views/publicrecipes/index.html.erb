@@ -1,0 +1,24 @@
+<div class="">
+  <h1>Public Recipes</h1>
+  <div>
+    <% if @recipes.empty? %>
+      <p>No public recipes available.</p>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <div>
+    <%= link_to user_recipe_path(user_id: recipe.user.id, id: recipe.id) do %>
+      <h2><%= recipe.name %></h2>
+    <% end %>
+    <p>By: <%= recipe.user.name %></p>
+  </div>
+
+  <div>
+  <% total_food_items = recipe.recipefoods.count %>
+  <% total_price = recipe.recipefoods.joins(:food).sum('foods.price * recipefoods.quantity') %>
+    <p>Total food items: <%= total_food_items %></p>
+    <p>Total price: <%= number_to_currency(total_price) %></p>
+  </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
