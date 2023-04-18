@@ -3,13 +3,6 @@
 <h1>Foods</h1>
 
 <div id="foods">
-  <% if request.path == user_foods_path(current_user) %>
-    <h3><%= "#{current_user.name.capitalize}'s Foods" %></h3>
-    <% @foods = current_user.foods %>
-  <% else %>
-    <h3><%= "All Foods" %></h3>
-  <% end %>
-
   <% if @foods.empty? %>
     <p>There are no foods yet.</p>
   <% else %>
@@ -26,15 +19,12 @@
       <tbody>
         <% @foods.each do |food| %>
           <tr>
-            <td><%= food.name %></td>
+            <td><%= link_to food.name, user_food_path(food.user, food) %></td>
             <td><%= food.measurement_unit %></td>
             <td><%= number_to_currency(food.price) %></td>
             <td><%= food.quantity %></td>
             <td>
-              <%= link_to "Show", user_food_path(food.user, food) %>
-              <% if food.user == current_user %>
-                <%= link_to "Delete", user_food_path(food.user, food), method: :delete, data: { confirm: "Are you sure you want to delete this food?" } %>
-              <% end %>
+              <%= link_to "Delete", user_food_path(food.user, food), method: :delete, data: { confirm: "Are you sure you want to delete this food?" } %>
             </td>
           </tr>
         <% end %>

@@ -1,13 +1,14 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_food, only: %i[show destroy]
-  before_action :set_user, only: %i[new create destroy]
+  before_action :set_user, only: %i[index new create destroy]
 
   def index
-    @foods = Food.all
+    @foods = @user.foods
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @food = @user.foods.new
@@ -17,7 +18,7 @@ class FoodsController < ApplicationController
     @food = @user.foods.new(food_params)
     if @food.save
       redirect_to user_food_path(@user, @food),
-                  notice: 'Food was successfully created.'
+                  notice: "Food was successfully created."
     else
       render :new
     end
@@ -26,7 +27,7 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy
     redirect_to user_foods_path(@user),
-                notice: 'Food was successfully destroyed.'
+                notice: "Food was successfully destroyed."
   end
 
   private

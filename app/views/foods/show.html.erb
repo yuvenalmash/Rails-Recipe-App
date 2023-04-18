@@ -3,9 +3,5 @@
 <%= render @food %>
 
 <div>
-  <% if request.path == user_foods_path(current_user) %>
-    <%= link_to "Back to foods", user_foods_path %>
-  <% else %>
-    <%= link_to "Back to foods", foods_path %>
-  <% end %>
+  <%= link_to "Back to foods", user_foods_path %>
 </div>
