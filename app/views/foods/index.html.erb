@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Foods</h1>
+
+<div id="foods">
+  <% if request.path == user_foods_path(current_user) %>
+    <h3><%= "#{current_user.name.capitalize}'s Foods" %></h3>
+    <% @foods = current_user.foods %>
+  <% else %>
+    <h3><%= "All Foods" %></h3>
+  <% end %>
+
+  <% if @foods.empty? %>
+    <p>There are no foods yet.</p>
+  <% end %>
+
+  <% @foods.each do |food| %>
+    <%= render food %>
+    <p>
+      <%= link_to "Show this food", user_food_path(food.user, food) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New food", new_user_food_path(current_user) %>
