@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       resources :recipefoods, only: [:create]
     end
   end
+  resources :publicrecipes, only: [:index]
 end
