@@ -34,7 +34,7 @@
   margin-right: 1.5rem;
 }
 
-.nav a:hover {
+.links:hover {
   color: #eee;
   text-decoration: underline;
 }
