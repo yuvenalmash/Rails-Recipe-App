@@ -1,0 +1,8 @@
+<nav class="nav">
+  <p> Welcome:  <%=current_user.name %></p>
+  <ul>
+    <li><%= link_to "Recipes",  user_recipes_path(user_id: @user.id), class: "links" %></li>
+    <li><%= link_to "Foods", user_foods_path(user_id: @user.id), class: "links" %></li>
+    <li><%= link_to "Public Recipes", publicrecipes_path(), class: "links" %></li>
+  </ul>
+</nav>
