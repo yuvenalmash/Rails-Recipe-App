@@ -5,12 +5,15 @@
 <div>
   <div>
     <%= "Preparation time: #{@recipe.preparation_time}" %>
-    <div class="toggle-switch">
-      <%= label :public, "Public", class: "toggle-switch-label" do %>
-        <%= check_box :public, class: "toggle-switch-checkbox" %>
-        <span class="toggle-switch-label"></span>
+    <label class="switch">
+      <%= form_for @recipe, url: user_recipe_path(current_user, @recipe), method: :patch do |f| %>
+        <%= f.hidden_field :public, value: !@recipe.public %>
+        <%= f.submit "Make public", class: "btn btn-primary" %>
       <% end %>
-    </div>
+      <input type="checkbox" <%= @recipe.public ? "checked" : "" %> disabled>
+      <span class="slider round"></span>
+    </label>
+    <%= "Public" %>
   </div>
 
   <p><%= "Cooking time: #{@recipe.cooking_time}" %></p>
