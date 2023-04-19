@@ -1,0 +1,90 @@
+.recipe-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.recipe-header {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-title {
+  margin-bottom: 2rem;
+}
+
+.delete-text {
+  margin-top: 0.2rem;
+  color: blue;
+  height: 3rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.recipe-description {
+  width: 60%;
+  margin-left: 1rem;
+}
+
+.recipe-button {
+  width: 120px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  border: 1px solid rgb(0, 0, 0);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form-section {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-field input[type="text"],
+.form-field textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+.form-actions {
+  text-align: right;
+}
+
+.btn {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
