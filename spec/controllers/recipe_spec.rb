@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'devise'
 
-RSpec.describe Recipes, type: :controller do
+RSpec.describe RecipesController, type: :controller do
   describe 'GET #index' do
     context 'when user is authenticated' do
       let(:user) { FactoryBot.create(:user) }
