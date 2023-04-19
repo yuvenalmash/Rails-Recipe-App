@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root "home#index"
   resources :users, only: %i[index show] do
     resources :foods, only: %i[index show new create destroy] do
-      resources :recipefoods, only: [:create]
+      resources :recipefoods, only: %i[show new create edit update destroy]
     end
-    resources :recipes, only: %i[create new destroy index] do
-      resources :recipefoods, only: [:create]
+    resources :recipes, only: %i[index show create update new destroy] do
+      resources :recipefoods, only: %i[show new create edit update destroy]
     end
   end
   resources :publicrecipes, only: [:index]
