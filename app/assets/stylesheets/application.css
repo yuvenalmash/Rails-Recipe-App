@@ -6,12 +6,43 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
+/* this is navigation start */
+.nav {
+  background-color: #c5c1c1;
+  padding: 10px;
+  border: 1px solid #000;
 }
 
-ul {
-  list-style: none;
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav li {
+  margin-right: 20px;
+}
+
+.links {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.nav a:hover {
+  color: #eee;
+  text-decoration: underline;
+}
+
+/* this is navigation end */
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 section {
