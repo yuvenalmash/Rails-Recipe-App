@@ -34,7 +34,20 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    return unless @recipe.update(recipe_params)
+
+    redirect_to user_recipe_path(user_id: current_user.id, id: @recipe.id)
+  end
+
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :public, :description, :cooking_time)
+    params.require(:recipe).permit(
+      :name,
+      :preparation_time,
+      :public,
+      :description,
+      :cooking_time
+    )
   end
 end
