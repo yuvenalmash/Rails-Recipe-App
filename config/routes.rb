@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "home#index"
+  root "publicrecipes#index"
   resources :users, only: %i[index show] do
     resources :foods, only: %i[index show new create destroy] do
       resources :recipefoods, only: %i[show new create edit update destroy]
