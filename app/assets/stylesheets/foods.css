@@ -1,0 +1,8 @@
+.foods-show, .foods-index, .foods-new {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  max-width: 1800px;
+  justify-content: center;
+}
