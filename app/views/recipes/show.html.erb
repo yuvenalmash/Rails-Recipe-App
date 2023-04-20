@@ -32,7 +32,7 @@
     <br>
 
     <div class="recipe-show-btns">
-      <button> Generate Shopping List </button>
+      <%= button_to "Generate Shopping List", user_recipe_shoppinglist_path(current_user, @recipe), method: :get %>
       <%= button_to "Add Ingredient", new_user_recipe_recipefood_path(current_user, @recipe), method: :get %>
     </div>
     <br>
@@ -55,7 +55,7 @@
           <% @recipe.recipefoods.each do |recipefood| %>
             <tr>
               <td><%= link_to recipefood.food.name, user_food_path(recipefood.food.user, recipefood.food) %></td>
-              <td><%= recipefood.quantity %></td>
+              <td><%= "#{recipefood.quantity} #{recipefood.food.measurement_unit}" %></td>
               <td><%= number_to_currency(recipefood.food.price * recipefood.quantity) %></td>
               <td>
                 <%= link_to "Modify", edit_user_recipe_recipefood_path(current_user, @recipe, recipefood) %>
