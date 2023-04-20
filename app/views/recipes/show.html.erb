@@ -5,7 +5,7 @@
 
   <div>
     <div class="recipe-show-headline">
-      <div>
+      <div class="recipe-show-attr">
         <p>
           <strong>Preparation time:</strong>
           <%= @recipe.preparation_time %> minutes
@@ -16,6 +16,7 @@
         </p>
       </div>
       <div class="toggle-switch-container">
+        <%= "Public" %>
         <label class="switch">
           <%= form_with model: @recipe, url: user_recipe_path(current_user, @recipe), method: :patch do |f| %>
             <%= f.hidden_field :public, value: !@recipe.public %>
@@ -24,15 +25,15 @@
           <input type="checkbox" <%= @recipe.public ? "checked" : "" %> disabled>
           <span class="slider round"></span>
         </label>
-        <%= "Public" %>
       </div>
     </div>
 
     <p><%= @recipe.description %></p>
+    <br>
 
     <%= button_to "Add ingredient", new_user_recipe_recipefood_path(current_user, @recipe), method: :get %> <br>
 
-    <hr>
+    <hr> <br>
 
     <% if @recipe.recipefoods.empty? %>
       <p>There are no ingredients yet.</p>

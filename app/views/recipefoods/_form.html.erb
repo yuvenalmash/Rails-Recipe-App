@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-field">
     <%= form.label :food_id, "Food" %>
     <%= form.collection_select :food_id, current_user.foods, :id, :name, prompt: true %>
   </div>
 
-  <div>
+  <div class="form-field">
     <%= form.label :quantity, "Quantity" %>
     <%= form.number_field :quantity %>
   </div>

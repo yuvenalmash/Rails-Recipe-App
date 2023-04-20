@@ -1,10 +1,10 @@
-.foods-show,
-.foods-index,
-.foods-new {
-  display: flex;
-  flex-direction: column;
+.add-food-btn {
   width: 100%;
-  height: 100vh;
-  max-width: 1800px;
-  justify-content: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.foods-index table {
+  width: 100%;
+  border-collapse: collapse;
 }
