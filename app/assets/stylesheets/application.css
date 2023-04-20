@@ -126,6 +126,7 @@ a:active {
   display: flex;
   gap: 10px;
 }
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -188,7 +189,6 @@ input:checked + .slider::before {
 .slider.round::before {
   border-radius: 50%;
 }
-
 
 /* Recipe show */
 .recipe-show {

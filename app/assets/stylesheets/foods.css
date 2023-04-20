@@ -1,4 +1,6 @@
-.foods-show, .foods-index, .foods-new {
+.foods-show,
+.foods-index,
+.foods-new {
   display: flex;
   flex-direction: column;
   width: 100%;
