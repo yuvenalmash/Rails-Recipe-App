@@ -1,7 +1,7 @@
 <section class="foods-index">
   <p style="color: green"><%= notice %></p>
   <div class="add-food-btn">
-    <%= button_to "New food", new_user_food_path(current_user), method: :get %>
+    <%= button_to "New food", new_user_food_path(current_user), class:"btn", method: :get %>
   </div>
   <div id="foods">
     <% if @foods.empty? %>
