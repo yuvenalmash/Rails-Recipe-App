@@ -31,7 +31,11 @@
     <p><%= @recipe.description %></p>
     <br>
 
-    <%= button_to "Add ingredient", new_user_recipe_recipefood_path(current_user, @recipe), method: :get %> <br>
+    <div class="recipe-show-btns">
+      <button> Generate Shopping List </button>
+      <%= button_to "Add Ingredient", new_user_recipe_recipefood_path(current_user, @recipe), method: :get %>
+    </div>
+    <br>
 
     <hr> <br>
 
