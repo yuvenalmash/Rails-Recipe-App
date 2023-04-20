@@ -1,8 +1,12 @@
-<h2>Show Ingredient: <%= @recipefood.food.name %></h2>
+<section class="recipefoods-show">
+  <h2>Show Ingredient: <%= @recipefood.food.name %></h2>
 
-<p><%= "Quantity: #{@recipefood.quantity}" %></p>
+  <p><%= "Quantity: #{@recipefood.quantity}" %></p>
 
-<%= button_to "Edit", edit_user_recipe_recipefood_path(current_user, @recipe, @recipefood) %>
-<%= button_to "Delete", user_recipe_recipefood_path(current_user, @recipe, @recipefood), method: :delete, data: { confirm: "Are you sure you want to delete this ingredient?" } %>
+  <div>
+    <%= button_to "Edit", edit_user_recipe_recipefood_path(current_user, @recipe, @recipefood) %>
+    <%= button_to "Delete", user_recipe_recipefood_path(current_user, @recipe, @recipefood), method: :delete, data: { confirm: "Are you sure you want to delete this ingredient?" } %>
+  </div>
 
-<%= link_to "Back to recipe", user_recipe_path(current_user, @recipe) %>
+  <%= link_to "Back to recipe", user_recipe_path(current_user, @recipe) %>
+</section>

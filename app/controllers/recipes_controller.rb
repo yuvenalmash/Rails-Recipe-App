@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def index
     @user = User.find(current_user.id)
-    @recipes = @user.recipes
+    @recipes = @user.recipes.includes(:user)
   end
 
   def show

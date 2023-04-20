@@ -1,37 +1,36 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Foods</h1>
-
-<div id="foods">
-  <% if @foods.empty? %>
-    <p>There are no foods yet.</p>
-  <% else %>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Food</th>
-          <th>Measurement Unit</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @foods.each do |food| %>
+<section class="foods-index">
+  <p style="color: green"><%= notice %></p>
+  <div class="add-food-btn">
+    <%= button_to "New food", new_user_food_path(current_user), class:"btn", method: :get %>
+  </div>
+  <div id="foods">
+    <% if @foods.empty? %>
+      <p>There are no foods yet.</p>
+    <% else %>
+      <table border="1">
+        <thead>
           <tr>
-            <td><%= link_to food.name, user_food_path(food.user, food) %></td>
-            <td><%= food.measurement_unit %></td>
-            <td><%= number_to_currency(food.price) %></td>
-            <td><%= food.quantity %></td>
-            <td>
-              <%= link_to "Delete", user_food_path(food.user, food), method: :delete, data: { confirm: "Are you sure you want to delete this food?" } %>
-            </td>
+            <th>Food</th>
+            <th>Measurement Unit</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</div>
-</div>
-
-<%= link_to "New food", new_user_food_path(current_user) %>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr>
+            <td><%= link_to food.name, user_food_path(food.user, food) %></td>
+              <td><%= food.measurement_unit %></td>
+              <td><%= number_to_currency(food.price) %></td>
+              <td><%= food.quantity %></td>
+              <td>
+                <%= link_to "Delete", user_food_path(food.user, food), method: :delete, data: { confirm: "Are you sure you want to delete this food?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</section>

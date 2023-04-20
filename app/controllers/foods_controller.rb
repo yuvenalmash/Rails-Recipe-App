@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
   before_action :set_user, only: %i[index new create destroy]
 
   def index
-    @foods = @user.foods
+    @foods = @user.foods.includes(:user)
   end
 
   def show; end
