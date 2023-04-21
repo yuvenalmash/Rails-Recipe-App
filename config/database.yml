@@ -20,8 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: dpg-ch171dr3cv203bvceilg-a
-  port: 5432
+  # host: dpg-ch171dr3cv203bvceilg-a
+  # port: 5432
   database: recipe_app_db_bkig
   username: recipe_app
 
