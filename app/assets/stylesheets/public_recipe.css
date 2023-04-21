@@ -1,0 +1,46 @@
+.precipe-post {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid black;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.left-column {
+  flex: 1;
+}
+
+.right-column {
+  flex: 1;
+  margin-left: 5rem;
+}
+
+.precipe-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.precipe-user {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+
+.precipe-totals {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.precipe-list {
+  text-align: center;
+}
+
+.precipe-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.heading-pr {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}

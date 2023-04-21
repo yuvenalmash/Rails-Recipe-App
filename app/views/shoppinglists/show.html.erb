@@ -1,0 +1,40 @@
+<section class="shoppinglist-show">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Shopping List</h1>
+<% if @shoppinglist.empty? %>
+<p> List is empty </p>
+<% else @shoppinglist.empty? %>
+
+  <div class="shoppinglist-show-headline">
+    <p>
+      Ammout of food to buy: <%= @shoppinglist.count %>
+    </p>
+    <p>
+      Total value of food needed: <%= number_to_currency(@shoppinglist.sum { |item| item[:price]}) %>
+    </p>
+  </div>
+
+  <Table border="1">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shoppinglist.each do |recipefood| %>
+        <tr>
+          <td><%= link_to recipefood[:food].name, user_food_path(current_user, recipefood[:food]) %></td>
+          <td><%= "#{recipefood[:quantity]} #{recipefood[:food].measurement_unit}" %></td>
+          <td><%= number_to_currency(recipefood[:price]) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </Table>
+<% end %>
+  <br>
+
+  <%= link_to "Back to Recipe", user_recipe_path(current_user, @recipe) %>
+</section>

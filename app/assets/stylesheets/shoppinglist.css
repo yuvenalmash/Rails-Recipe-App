@@ -1,0 +1,13 @@
+.shoppinglist-show h1 {
+  text-align: center;
+}
+
+.shoppinglist-show-headline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shoppinglist-show table {
+  width: 100%;
+  border-collapse: collapse;
+}

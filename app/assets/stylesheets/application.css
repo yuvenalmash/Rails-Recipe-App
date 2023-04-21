@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* this is navigation start */
+.nav {
+  background-color: #c5c1c1;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav li {
+  margin-right: 20px;
+}
+
+.links {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.links:hover {
+  color: #eee;
+  text-decoration: underline;
+}
+
+/* this is navigation end */
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+section {
+  display: flex;
+  gap: 30px;
+  width: 60%;
+  flex-direction: column;
+  margin: 30px auto;
+}
+
+.buton {
+  align-self: center;
+  width: 120px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  border: 1px solid rgb(0, 0, 0);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:active {
+  color: inherit;
+}
+
+.posts-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-text {
+  height: 90px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.f-items {
+  text-align: start;
+  width: 75%;
+  font-size: 1rem;
+  flex-direction: column;
+}
+
+.form-attr {
+  width: 100%;
+  padding: 5px;
+}
+
+.form-section {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  top: 50%;
+  width: 30%;
+  text-align: center;
+  border: 1px solid black;
+}

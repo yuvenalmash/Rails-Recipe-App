@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsRecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "recipe_index" %>
+    <%= stylesheet_link_tag "public_recipe" %>
+    <%= stylesheet_link_tag "recipes_show" %>
+    <%= stylesheet_link_tag "foods" %>
+    <%= stylesheet_link_tag "recipefoods" %>
+    <%= stylesheet_link_tag "shoppinglist" %>
+
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <%= render 'layouts/navigation' %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<section>
+  <h1>Here is list of recipe</h1>
+  <button type="button" class="recipe-button"><%= link_to "Add Recipe", new_user_recipe_path(user_id: current_user.id) %></button>
+
+  <% @recipes.each do |recipe| %>
+    
+      <div class="recipe-container">
+        <div class="recipe-header">
+        <%= link_to user_recipe_path(user_id: recipe.user.id, id: recipe.id), class: "recipe-post" do %>
+          <h2 class="recipe-title"><%= recipe.name %></h2>
+          <% end %>
+  <%= form_with url: user_recipe_path(user_id: recipe.user.id, id: recipe.id), method: :delete do |form| %>
+    <%= form.submit "REMOVE", class: "delete-text" %>
+  <% end %>
+        </div>
+        <div class="recipe-description">
+          <h4><%= truncate(recipe.description, length: 150, omission: " . . .") %></h4>
+        </div>
+      </div>
+  <% end %>
+</section>

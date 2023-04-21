@@ -1,0 +1,25 @@
+<div class="precipe-list">
+  <h1 class="heading-pr">Public Recipes</h1>
+  <div class="precipe-container">
+    <% if @recipes.empty? %>
+      <p>No public recipes available.</p>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <div class="precipe-post">
+          <div class="left-column">
+            <%= link_to user_recipe_path(user_id: recipe.user.id, id: recipe.id) do %>
+              <h2 class="precipe-title"><%= recipe.name %></h2>
+            <% end %>
+            <p class="precipe-user">By: <%= recipe.user.name %></p>
+          </div>
+          <div class="right-column">
+            <% total_food_items = recipe.recipefoods.count %>
+            <% total_price = recipe.recipefoods.joins(:food).sum('foods.price * recipefoods.quantity') %>
+            <p class="precipe-totals">Total food items: <%= total_food_items %></p>
+            <p class="precipe-totals">Total price: <%= number_to_currency(total_price) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

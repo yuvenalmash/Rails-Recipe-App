@@ -1,0 +1,10 @@
+.add-food-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.foods-index table {
+  width: 100%;
+  border-collapse: collapse;
+}

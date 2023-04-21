@@ -1,0 +1,70 @@
+<section class="recipe-show">
+  <p style="color: green"><%= notice %></p>
+
+  <h1> <%= @recipe.name %> </h1>
+
+  <div>
+    <div class="recipe-show-headline">
+      <div class="recipe-show-attr">
+        <p>
+          <strong>Preparation time:</strong>
+          <%= @recipe.preparation_time %> minutes
+        </p>
+        <p>
+          <strong>Cooking time:</strong>
+          <%= @recipe.cooking_time %>
+        </p>
+      </div>
+      <div class="toggle-switch-container">
+        <%= "Public" %>
+        <label class="switch">
+          <%= form_with model: @recipe, url: user_recipe_path(current_user, @recipe), method: :patch do |f| %>
+            <%= f.hidden_field :public, value: !@recipe.public %>
+            <%= f.submit "", class: "btn btn-primary" %>
+          <% end %>
+          <input type="checkbox" <%= @recipe.public ? "checked" : "" %> disabled>
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+
+    <p><%= @recipe.description %></p>
+    <br>
+
+    <div class="recipe-show-btns">
+      <%= button_to "Generate Shopping List", user_recipe_shoppinglist_path(current_user, @recipe), method: :get %>
+      <%= button_to "Add Ingredient", new_user_recipe_recipefood_path(current_user, @recipe), method: :get %>
+    </div>
+    <br>
+
+    <hr> <br>
+
+    <% if @recipe.recipefoods.empty? %>
+      <p>There are no ingredients yet.</p>
+    <% else %>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe.recipefoods.each do |recipefood| %>
+            <tr>
+              <td><%= link_to recipefood.food.name, user_food_path(recipefood.food.user, recipefood.food) %></td>
+              <td><%= "#{recipefood.quantity} #{recipefood.food.measurement_unit}" %></td>
+              <td><%= number_to_currency(recipefood.food.price * recipefood.quantity) %></td>
+              <td>
+                <%= link_to "Modify", edit_user_recipe_recipefood_path(current_user, @recipe, recipefood) %>
+                <%= link_to "Delete", user_recipe_recipefood_path(current_user, @recipe, recipefood), method: :delete, data: { confirm: "Are you sure you want to delete this ingredient?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</section>
