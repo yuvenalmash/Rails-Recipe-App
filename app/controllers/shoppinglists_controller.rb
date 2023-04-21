@@ -1,19 +1,39 @@
 class ShoppinglistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_recipe, only: %i[show]
 
   def show
-    @recipefoods = @recipe.recipefoods
-    @recipefoods_count = @recipefoods.count
-    @total_price =
-      @recipefoods
-        .map { |recipefood| recipefood.food.price * recipefood.quantity }
-        .sum
-  end
+    user = current_user
+    recipes = user.recipes.includes(recipefoods: :food)
+    shoppinglist_raw = {}
 
-  private
+    recipes.each do |recipe|
+      recipe.recipefoods.each do |recipefood|
+        food = recipefood.food
+        if shoppinglist_raw[food.id]
+          shoppinglist_raw[food.id][:quantity] += recipefood.quantity
+        else
+          shoppinglist_raw[food.id] = {
+            food: food,
+            quantity: recipefood.quantity
+          }
+        end
+      end
 
-  def set_recipe
-    @recipe = Recipe.find(params[:recipe_id])
+      @shoppinglist = []
+      shoppinglist_raw.values.each do |recipefood|
+        quantity = recipefood[:quantity] - recipefood[:food].quantity
+        if quantity > 0
+          @shoppinglist << {
+            food: recipefood[:food],
+            quantity: quantity,
+            price: recipefood[:food].price * quantity
+          }
+        end
+      end
+
+      @shoppinglist_count = @shoppinglist.count
+      @shoppinglist_price = @shoppinglist.sum { |item| item[:price] }
+    end
+    @recipe = Recipe.find(params[:id])
   end
 end
