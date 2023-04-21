@@ -1,5 +1,5 @@
 databases:
-  - name: recipe_app
+  - name: recipe_app_db
     databaseName: recipe_app_db
     user: recipe_app
 
