@@ -5,10 +5,10 @@
 
   <div class="shoppinglist-show-headline">
     <p>
-      Ammout of food to buy: <%= @recipefoods_count %>
+      Ammout of food to buy: <%= @shoppinglist_count %>
     </p>
     <p>
-      Total value of food needed: <%= number_to_currency(@total_price) %>
+      Total value of food needed: <%= number_to_currency(@shoppinglist_price) %>
     </p>
   </div>
 
@@ -21,11 +21,11 @@
       </tr>
     </thead>
     <tbody>
-      <% @recipefoods.each do |recipefood| %>
+      <% @shoppinglist.each do |recipefood| %>
         <tr>
-          <td><%= link_to recipefood.food.name, user_food_path(recipefood.food.user, recipefood.food) %></td>
-          <td><%= "#{recipefood.quantity} #{recipefood.food.measurement_unit}" %></td>
-          <td><%= number_to_currency(recipefood.food.price * recipefood.quantity) %></td>
+          <td><%= link_to recipefood[:food].name, user_food_path(current_user, recipefood[:food]) %></td>
+          <td><%= "#{recipefood[:quantity]} #{recipefood[:food].measurement_unit}" %></td>
+          <td><%= number_to_currency(recipefood[:price]) %></td>
         </tr>
       <% end %>
     </tbody>
