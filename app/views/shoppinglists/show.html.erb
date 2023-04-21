@@ -2,6 +2,9 @@
   <p style="color: green"><%= notice %></p>
 
   <h1>Shopping List</h1>
+<% if @shoppinglist.empty? %>
+<p> List if empty </p>
+<% else @shoppinglist.empty? %>
 
   <div class="shoppinglist-show-headline">
     <p>
@@ -30,7 +33,7 @@
       <% end %>
     </tbody>
   </Table>
-
+<% end %>
   <br>
 
   <%= link_to "Back to Recipe", user_recipe_path(current_user, @recipe) %>

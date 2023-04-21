@@ -4,7 +4,8 @@ class ShoppinglistsController < ApplicationController
   def show
     recipes = current_user.recipes.includes(recipefoods: :food)
     shoppinglist_raw = {}
-
+    @shoppinglist = []
+    
     recipes.each do |recipe|
       recipe.recipefoods.each do |recipefood|
         food = recipefood.food
@@ -18,7 +19,7 @@ class ShoppinglistsController < ApplicationController
         end
       end
 
-      @shoppinglist = []
+      
       update_shoppinglist(shoppinglist_raw)
     end
     @recipe = Recipe.find(params[:recipe_id])
