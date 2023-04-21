@@ -5,10 +5,10 @@
 
   <div class="shoppinglist-show-headline">
     <p>
-      Ammout of food to buy: <%= @shoppinglist_count %>
+      Ammout of food to buy: <%= @shoppinglist.count %>
     </p>
     <p>
-      Total value of food needed: <%= number_to_currency(@shoppinglist_price) %>
+      Total value of food needed: <%= number_to_currency(@shoppinglist.sum { |item| item[:price]}) %>
     </p>
   </div>
 
