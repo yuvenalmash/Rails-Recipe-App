@@ -19,7 +19,6 @@ class ShoppinglistsController < ApplicationController
         end
       end
 
-
       update_shoppinglist(shoppinglist_raw)
     end
     @recipe = Recipe.find(params[:recipe_id])
